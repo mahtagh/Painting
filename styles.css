@@ -1,0 +1,127 @@
+/* The site is a gallery wall: cool plaster, paintings hung with a soft
+   light-from-above shadow, white wall labels, and a red dot for sold work. */
+:root {
+  --wall: #eceeeb;
+  --wall-deep: #e1e4e0;
+  --ink: #23272b;
+  --muted: #565d63;
+  --card: #ffffff;
+  --dot: #d22b2b;
+  --sky: #284b73;
+  --serif: "Young Serif", "Iowan Old Style", Palatino, Georgia, serif;
+  --sans: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --gap: clamp(1.25rem, 4vw, 3.5rem);
+  --hang: 0 1px 1px rgba(35, 39, 43, .14), 4px 12px 22px -8px rgba(35, 39, 43, .38);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body {
+  margin: 0; background: var(--wall); color: var(--ink);
+  font: 400 1.0625rem/1.6 var(--sans);
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--sky); text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--sky); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; line-height: 1.15; margin: 0; }
+
+.skip { position: absolute; left: -999px; top: .5rem; background: var(--card); padding: .5rem 1rem; }
+.skip:focus { left: .5rem; z-index: 10; }
+
+/* header */
+.top {
+  display: flex; flex-wrap: wrap; gap: .5rem 2rem; align-items: baseline; justify-content: space-between;
+  padding: 1.25rem var(--gap);
+}
+.mark { font-family: var(--serif); font-size: 1.2rem; color: var(--ink); text-decoration: none; }
+.top nav { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; }
+.top nav a { color: var(--ink); text-decoration: none; font-weight: 500; font-size: .95rem; }
+.top nav a:hover { text-decoration: underline; }
+
+main { padding: 0 var(--gap); }
+
+/* hero: one painting hung large, with its label to the side */
+.hero {
+  display: grid; gap: 2.5rem var(--gap); align-items: end;
+  grid-template-columns: minmax(16rem, 1fr) minmax(0, 2fr);
+  padding: clamp(2rem, 7vw, 6rem) 0 clamp(3rem, 8vw, 7rem);
+}
+.hero h1 { font-size: clamp(2.6rem, 6.2vw, 4.75rem); letter-spacing: -.01em; max-width: 8ch; }
+.lede { font-size: 1.2rem; max-width: 30ch; margin: 1.25rem 0 1rem; }
+.count a { font-weight: 600; }
+.hero-work { margin: 0; position: relative; width: fit-content; justify-self: center; }
+.hero-work .frame img { max-height: min(78vh, 860px); width: auto; }
+.frame { display: block; box-shadow: var(--hang); background: var(--wall-deep); }
+.tag--card {
+  background: var(--card); padding: .9rem 1.1rem; width: min(17rem, 100%);
+  margin: 1.5rem 0 0 auto; box-shadow: 0 1px 2px rgba(35, 39, 43, .12);
+}
+
+/* wall labels */
+.tag .t { font-size: 1.15rem; }
+.tag .t a { color: var(--ink); text-decoration: none; }
+.tag .t a:hover { text-decoration: underline; }
+.tag .t a::after { content: ""; position: absolute; inset: 0; } /* whole work is clickable */
+.m { color: var(--muted); font-size: .9rem; margin: .3rem 0 0; }
+.price { margin: .35rem 0 0; font-weight: 600; font-size: .95rem; display: flex; align-items: center; gap: .45rem; }
+.price--sold, .price--reserved { color: var(--muted); font-weight: 500; }
+.dot { width: .7rem; height: .7rem; border-radius: 50%; background: var(--dot); flex: none; display: inline-block; }
+.dot--ring { background: transparent; border: 2px solid var(--dot); }
+
+/* the salon hang */
+.wall { border-top: 1px solid rgba(35, 39, 43, .12); padding-top: clamp(2.5rem, 6vw, 4.5rem); }
+.wall h2, .prose h2 { font-size: clamp(1.8rem, 3.4vw, 2.4rem); }
+.note { color: var(--muted); max-width: 52ch; margin: .6rem 0 0; }
+.hang { columns: 3 18rem; column-gap: var(--gap); margin-top: 2.5rem; }
+.work { break-inside: avoid; margin: 0 0 clamp(2.5rem, 5vw, 4rem); position: relative; }
+.work .frame { width: calc(var(--scale, 1) * 100%); }
+.work .tag { margin-top: 1rem; }
+
+/* text sections */
+.prose { max-width: 38rem; padding: clamp(2.5rem, 6vw, 4.5rem) 0 0; }
+.prose p { margin: 1rem 0 0; }
+.plain { list-style: none; padding: 0; margin: 1rem 0 0; }
+.plain li + li { margin-top: .4rem; }
+
+.btn {
+  display: inline-block; background: var(--sky); color: #fff; text-decoration: none;
+  font-weight: 600; padding: .85rem 1.4rem; border-radius: 3px; margin-top: .5rem;
+}
+.btn:hover { background: #1d3a5b; }
+.btn--quiet { background: transparent; color: var(--sky); box-shadow: inset 0 0 0 1.5px var(--sky); }
+.btn--quiet:hover { background: var(--card); }
+
+/* painting page */
+.crumbs { font-size: .9rem; color: var(--muted); padding: 1rem 0 0; }
+.piece {
+  display: grid; gap: 2.5rem var(--gap); align-items: start;
+  grid-template-columns: minmax(0, 1.7fr) minmax(17rem, 1fr);
+  padding: 2rem 0 3rem;
+}
+.piece-work { margin: 0; }
+.piece-work .frame { width: fit-content; }
+.piece-work img { max-height: 85vh; width: auto; }
+.piece-info { position: sticky; top: 1.5rem; }
+.piece-info h1 { font-size: clamp(2rem, 4vw, 3rem); }
+.piece-info .m { font-size: 1rem; }
+.desc { margin: 1.25rem 0; max-width: 42ch; }
+.big-price { font-size: 1.5rem; font-weight: 600; margin: 0 0 .5rem; }
+.status { display: flex; align-items: center; gap: .5rem; font-weight: 600; }
+.small { font-size: .9rem; color: var(--muted); }
+.sub { font-family: var(--sans); font-weight: 600; font-size: 1rem; margin-top: 2.25rem; }
+.pager {
+  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+  border-top: 1px solid rgba(35, 39, 43, .12); padding: 1.5rem 0;
+}
+
+.foot { padding: 4rem var(--gap) 2.5rem; color: var(--muted); font-size: .9rem; }
+.foot p { margin: .25rem 0; }
+
+@media (max-width: 860px) {
+  .hero, .piece { grid-template-columns: 1fr; }
+  .hero { align-items: start; }
+  .hero-text { order: 0; }
+  .tag--card { margin-left: 0; }
+}
