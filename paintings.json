@@ -1,0 +1,83 @@
+{
+  "site": {
+    "artist": "Mahtaium",
+    "site_url": "https://www.mahtaium.com",
+    "intro": "Acrylic paintings of the sea, flowers and quiet moments, painted in Calgary. Every painting here is an original, one of a kind.",
+    "home_description": "Original acrylic paintings by Calgary artist Mahtaium: textured ocean and beach art, florals and figurative pieces. Buy online, shipped across Canada.",
+    "city": "Calgary",
+    "region": "Alberta",
+    "country": "CA",
+    "email": "Mahtaium@gmail.com",
+    "instagram": "",
+    "currency": "CAD",
+    "about": [
+      "I'm a painter based in Calgary. I started taking painting classes to make time for something slow and hands-on, and I haven't stopped since.",
+      "I paint in acrylic, often with a palette knife and thick texture you can see and feel: foam on a wave, petals in someone's hair. My favourite subjects are the sea, flowers, and people caught in a quiet moment."
+    ],
+    "commissions": "I take a small number of commissions each year: a beach or landscape that matters to you, or a painting in colours to suit your room. Tell me what you have in mind and the size you'd like, and I'll reply with a price and timeline.",
+    "buying": [
+      "Free local pickup in Calgary, arranged by email, or shipped anywhere in Canada. Shipping is added at checkout.",
+      "Paintings are wrapped and boxed with corner protectors so they arrive safely."
+    ],
+    "custom_domain": "www.mahtaium.com"
+  },
+  "paintings": [
+    {
+      "slug": "where-the-tide-turns",
+      "title": "Where the Tide Turns",
+      "year": 2026,
+      "medium": "Textured acrylic on canvas",
+      "height_in": 36,
+      "width_in": 24,
+      "price": 450,
+      "status": "available",
+      "stripe_link": "",
+      "image": "where-the-tide-turns.jpg",
+      "alt": "Textured acrylic painting of a beach seen from above: deep blue ocean, raised white foam where the waves break, and golden sand",
+      "description": "A beach seen from above. The waves are built up in thick white paint so the foam stands off the canvas, and the sand is textured so you can feel it under your fingertips.",
+      "featured": true
+    },
+    {
+      "slug": "roses-in-her-hair",
+      "title": "Roses in Her Hair",
+      "year": 2026,
+      "medium": "Acrylic on canvas",
+      "height_in": 14,
+      "width_in": 11,
+      "price": 220,
+      "status": "available",
+      "stripe_link": "",
+      "image": "roses-in-her-hair.jpg",
+      "alt": "Acrylic painting of a woman seen from behind, her dark hair in a low bun pinned with pink roses, in a lilac and yellow top, against pastel palette-knife strokes",
+      "description": "A woman seen from behind, her dark hair pinned up with pink roses. The background and her top are layered palette-knife strokes in lilac, yellow, peach and mint."
+    },
+    {
+      "slug": "window-to-the-sea",
+      "title": "Window to the Sea",
+      "year": 2026,
+      "medium": "Acrylic on canvas",
+      "height_in": 10,
+      "width_in": 8,
+      "price": 160,
+      "status": "available",
+      "stripe_link": "",
+      "image": "window-to-the-sea.jpg",
+      "alt": "Acrylic painting of a woman sitting in a pink arched window, looking out at a rough blue sea, dark rocky islands and a crescent moon, framed by a green wall",
+      "description": "A woman sits in an arched window, looking out over a rough blue sea toward dark islands, with a crescent moon and a few birds in the evening sky."
+    },
+    {
+      "slug": "white-blossoms",
+      "title": "White Blossoms",
+      "year": 2026,
+      "medium": "Acrylic on canvas",
+      "height_in": 12,
+      "width_in": 4,
+      "price": 95,
+      "status": "available",
+      "stripe_link": "",
+      "image": "white-blossoms.jpg",
+      "alt": "Tall narrow acrylic painting of a branch of white blossoms and green leaves on a dusty pink arch, with a pale butter-yellow border",
+      "description": "A single branch of white blossoms rising inside a dusty pink arch, bordered in soft butter yellow. A tall, narrow piece for a hallway, beside a doorway or between two windows."
+    }
+  ]
+}
