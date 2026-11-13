@@ -102,12 +102,12 @@ def page(*, title, description, path, prefix, body, og_image, jsonld, og_type="w
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="top">
-  <a class="mark" href="{prefix}index.html">{e(ARTIST)}</a>
+  <a class="mark" href="{prefix or './'}">{e(ARTIST)}</a>
   <nav aria-label="Main">
-    <a href="{prefix}index.html#paintings">Paintings</a>
-    <a href="{prefix}index.html#about">About</a>
-    <a href="{prefix}index.html#commissions">Commissions</a>
-    <a href="{prefix}index.html#contact">Contact</a>
+    <a href="{prefix}#paintings">Paintings</a>
+    <a href="{prefix}#about">About</a>
+    <a href="{prefix}#commissions">Commissions</a>
+    <a href="{prefix}#contact">Contact</a>
   </nav>
 </header>
 <main id="main">
@@ -236,7 +236,7 @@ def build_paintings():
         large = p["dims"]["large"][0]
         buying = "".join(f"<li>{e(x)}</li>" for x in S["buying"])
         body = f"""
-<nav class="crumbs" aria-label="Breadcrumb"><a href="../index.html#paintings">Paintings</a> / <span aria-current="page">{e(p['title'])}</span></nav>
+<nav class="crumbs" aria-label="Breadcrumb"><a href="../#paintings">Paintings</a> / <span aria-current="page">{e(p['title'])}</span></nav>
 <article class="piece">
   <figure class="piece-work">
     <div class="frame">{img_tag(p, '../', size='large', eager=True, sizes='(min-width: 900px) 62vw, 100vw')}</div>
@@ -293,7 +293,7 @@ def build_extras():
     (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n", encoding="utf-8")
     (OUT / ".nojekyll").write_text("")
     nf = page(title=f"Page not found | {ARTIST}", description="This page doesn't exist.", path="404.html", prefix=BASE + "/",
-              body=f'<section class="prose"><h1>This page doesn\'t exist</h1><p>The painting may have moved. <a href="{BASE}/index.html#paintings">See all paintings</a>.</p></section>',
+              body=f'<section class="prose"><h1>This page doesn\'t exist</h1><p>The painting may have moved. <a href="{BASE}/#paintings">See all paintings</a>.</p></section>',
               og_image=P[0]["dims"]["large"][0], jsonld=[])
     (OUT / "404.html").write_text(nf.replace('<meta name="description"', '<meta name="robots" content="noindex">\n<meta name="description"'), encoding="utf-8")
     domain = S.get("custom_domain")
